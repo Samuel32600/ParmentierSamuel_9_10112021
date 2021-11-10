@@ -1,0 +1,33 @@
+.container-Left-nav-bar{
+    width:117px;
+    height: 933px;
+    max-height: 100%;
+    background-color: black;
+    border: 2px solid red;    
+}
+
+.left-nav{
+    border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    margin-top: 246px;
+    margin-bottom: 154px;
+}
+
+.icon{
+    border: 1px solid green;
+    width: 64px;
+    height: 64px;
+    padding: 10px;
+}
+
+.text-nav-bar{
+    border: 1px solid green;
+    width: auto;    
+    color: white;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+    font-size: 12px;
+}
