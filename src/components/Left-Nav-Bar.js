@@ -8,7 +8,7 @@ import Bodybuilding from'../assets/bodybuilding.png'
 
 import { Link } from 'react-router-dom';
 
-class Nav_Bar_Left extends React.Component {
+class NavBarLeft extends React.Component {
     
     render() {
         return (
@@ -43,4 +43,4 @@ class Nav_Bar_Left extends React.Component {
     }
 }
 
-export default Nav_Bar_Left
+export default NavBarLeft
