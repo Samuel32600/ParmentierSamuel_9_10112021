@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+
+import Activity from '../components/Activity-BarChart.js'
 import '../styles/home-page.css'
 
 
@@ -48,6 +50,8 @@ class HomePage extends React.Component {
                     <h1 className='title'>Bonjour <span className='firstName'>{this.state.firstName}</span> </h1>
                     <h2 className='subtitle'>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
                 </div>
+
+                <Activity/>
 
 
             </div>

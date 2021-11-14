@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/App.css'
+import axios from 'axios'
 
 // import logo from './logo.svg'
 
@@ -8,20 +9,20 @@ import Header from './Header';
 import NavBarLeft from './Left-Nav-Bar';
 import HomePage from '../pages/Home-page';
 
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
     return (
 
       <div className="App">
-        <BrowserRouter>
+        <Router>
 
           <Header />
           <NavBarLeft/>
           <HomePage/>
 
-        </BrowserRouter>
+        </Router>
       </div>
 
     )
