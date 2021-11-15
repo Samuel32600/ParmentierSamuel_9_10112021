@@ -37,3 +37,17 @@
     text-align: start;
     margin: 0;
 }
+
+.container-graphic{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-small-graphic{
+    border: 1px solid blue;
+    width: 835px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
