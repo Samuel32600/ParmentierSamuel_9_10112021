@@ -27,7 +27,7 @@ class HomePage extends React.Component {
 
     componentDidMount() {
         const AdressLink = "http://localhost:3001/user/"
-        const UserIdentification = 12;
+        const UserIdentification = 18;
         axios.get(AdressLink + UserIdentification)
 
             .then((request) => {
@@ -44,7 +44,6 @@ class HomePage extends React.Component {
                     firstName: Information.userInfos.firstName,
                 }))
             })
-
     }
 
 

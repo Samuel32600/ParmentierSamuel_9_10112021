@@ -1,6 +1,43 @@
-.container-activity{
+.container-activity {
     width: 835px;
     height: 320px;
     border-radius: 5px;
-    border: 3px solid yellow
+    border: 3px solid yellow;
+    display: flex;
+    flex-direction: column;
+    color: #9B9EAC
+}
+
+.title-graph-activity {
+    border: 2px solid red;
+    width: 30%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: black;
+    text-align: start;
+    margin: 0;
+    font-weight: bold;
+}
+
+.custom-tooltip {
+    width: 39px;
+    height: 63px;
+    background-color: #E60000;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 7px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: space-around;
+}
+
+.label2{
+    margin:0;
+    margin-top: 10px;
+}
+
+.label1{
+    margin:0;
+    margin-bottom: 10px;
 }
