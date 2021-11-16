@@ -20,7 +20,7 @@
 }
 
 /* graphisme info bulle */
-.custom-tooltip {
+.custom-tooltip-BarChart {
     width: 39px;
     height: 63px;
     background-color: #E60000;
@@ -31,6 +31,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: space-around;
+    margin: 7px;
 }
 
 /* graphisme info bulle texte du poids */

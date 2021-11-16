@@ -15,7 +15,7 @@ class Activity extends React.Component {
             elementOfSessions: []
         }
     }
-
+ 
 
     componentDidMount() {
         const AdressLink = "http://localhost:3001/user/"
@@ -35,12 +35,12 @@ class Activity extends React.Component {
     }
 
     render() {
-      
+
         // modification du formalisme de l'axe des abscisses
         const formatXAxis = (tickItem) => {
             if (typeof tickItem === 'string') {
-                console.log(tickItem)
-                return tickItem.substring(tickItem.length -1, tickItem.length)
+                // console.log(tickItem)
+                return tickItem.substring(tickItem.length - 1, tickItem.length)
             }
         }
 
@@ -48,7 +48,7 @@ class Activity extends React.Component {
         const CustomTooltip = ({ active, payload, label }) => {
             if (active && payload && payload.length) {
                 return (
-                    <div className="custom-tooltip">
+                    <div className="custom-tooltip-BarChart">
                         <p className="label1">{`${payload[0].value}`}Kg</p>
                         <p className="label2">{`${payload[1].value}`}Kcal</p>
                     </div>
@@ -58,13 +58,13 @@ class Activity extends React.Component {
         };
 
         // modification du formalisme de la legende
-        const updateLegend = (legend) => { 
-            if(legend === "kilogram"){
+        const updateLegend = (legend) => {
+            if (legend === "kilogram") {
                 legend = "Poids (kg)"
-            } 
-            else{
+            }
+            else {
                 legend = "Calories brûlées (KCal)"
-            }       
+            }
             // legend = legend === "kilogram" ? "Poids (kg)" : "Calories brûlées (KCal)"
             return <span className='text-legend'>{legend}</span>
         }
@@ -79,27 +79,23 @@ class Activity extends React.Component {
                         width="100%"
                         height="100%"
                         data={this.state.elementOfSessions}
+                        barGap="8"
                         margin={{
                             top: 0,
                             right: 29,
                             left: 32,
-                            bottom: 10,
-                        }}
-                        barGap="8"
-                    >
+                            bottom: 10}} >
 
                         <CartesianGrid
                             strokeDasharray="3 3"
-                            vertical={false}
-                        />
+                            vertical={false} />
 
                         <XAxis
                             dataKey="day"
                             tickMargin={5}
                             tickLine={false}
                             tickFormatter={formatXAxis}
-                            stroke="#9B9EAC"
-                        />
+                            stroke="#9B9EAC" />
 
                         <YAxis
                             dataKey="calories"
@@ -108,36 +104,31 @@ class Activity extends React.Component {
                             axisLine={false}
                             tickLine={false}
                             tickMargin={5}
-                            stroke="#9B9EAC"
-                        />
+                            stroke="#9B9EAC" />
 
                         <Tooltip
-                            content={<CustomTooltip />}
-                        />
+                            content={<CustomTooltip />} />
 
                         <Legend
                             verticalAlign="top"
                             align="right"
                             iconType="circle"
                             formatter={updateLegend}
-                            wrapperStyle={{paddingBottom: 40 , paddingTop: 20}}                            
-                        />
+                            wrapperStyle={{ paddingBottom: 40, paddingTop: 20 }} />
 
                         <Bar
                             dataKey="kilogram"
                             barSize={7}
                             radius={[3, 3, 0, 0]}
-                            fill="#282D30"
-                            
-                        />
+                            fill="#282D30" />
 
                         <Bar
                             dataKey="calories"
                             barSize={7}
                             radius={[3, 3, 0, 0]}
                             fill="#E60000" />
-                    </BarChart>
 
+                    </BarChart>
                 </ResponsiveContainer>
             </div>
         )
