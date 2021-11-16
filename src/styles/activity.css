@@ -3,22 +3,23 @@
     height: 320px;
     border-radius: 5px;
     border: 3px solid yellow;
-    display: flex;
-    flex-direction: column;
     color: #9B9EAC
 }
 
 .title-graph-activity {
-    border: 2px solid red;
-    width: 30%;
+    width: 20%;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-    color: black;
+    color: #20253A;
     text-align: start;
     margin: 0;
     font-weight: bold;
+    margin-top: 20px;
+    margin-left: 32px;
+    position: absolute;
 }
 
+/* graphisme info bulle */
 .custom-tooltip {
     width: 39px;
     height: 63px;
@@ -27,17 +28,24 @@
     font-family: 'Roboto', sans-serif;
     font-size: 7px;
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     justify-content: center;
     align-items: space-around;
 }
 
-.label2{
-    margin:0;
+/* graphisme info bulle texte du poids */
+.label1 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+/* graphisme info bulle texte des calories */
+.label2 {
+    margin: 0;
     margin-top: 10px;
 }
 
-.label1{
-    margin:0;
-    margin-bottom: 10px;
+.text-legend {
+    color: #74798C;
+    font-size: 14px;
 }
