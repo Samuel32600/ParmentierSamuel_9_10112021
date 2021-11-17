@@ -6,7 +6,7 @@ import '../styles/home-page.css'
 // import des components
 import Activity from '../components/Activity-BarChart.js'
 import TimingSession from '../components/TimingSession-LineChart.js'
-import Radar from '../components/Radar-RadarChart.js'
+import RadarPerformance from '../components/Radar-RadarChart.js'
 import KPI from '../components/KPI-RadialBarChart.js'
 
 
@@ -59,7 +59,7 @@ class HomePage extends React.Component {
                     <Activity />
                     <div className='container-small-graphic'>
                         <TimingSession/>
-                        <Radar/>
+                        <RadarPerformance/>
                         <KPI/>
                     </div>
                 </div>

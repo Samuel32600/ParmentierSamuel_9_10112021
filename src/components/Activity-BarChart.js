@@ -4,8 +4,6 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 
 import '../styles/activity.css'
 
-
-
 class Activity extends React.Component {
 
     constructor(props) {
