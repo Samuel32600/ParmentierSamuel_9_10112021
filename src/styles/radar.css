@@ -1,7 +1,12 @@
-.container-radar{
+.container-radar {
     width: 258px;
     height: 263px;
     border-radius: 5px;
     border: 3px solid green;
-    background-color:#282D30;
+    background-color: #282D30;
+}
+
+/* suppression ligne a l'interieur du radar  */
+.recharts-polar-grid-angle line {
+    stroke: none;
 }

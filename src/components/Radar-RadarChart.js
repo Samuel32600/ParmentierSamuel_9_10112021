@@ -21,8 +21,8 @@ class RadarPerformance extends React.Component {
         axios.get(AdressLink + UserIdentification + Type)
             .then((request) => {
                 const DataKind = request.data.data
-                console.log(request.data.data.kind)
-                console.log(request.data.data.data)
+                // console.log(request.data.data.kind)
+                // console.log(request.data.data.data)
 
                 //remplissage des données
                 this.setState(() => ({
@@ -46,7 +46,7 @@ class RadarPerformance extends React.Component {
 
         // modification du formalisme des valeurs du radar
         const updateKind = (tickItem) => {
-            return categoryKind [tickItem]
+            return categoryKind[tickItem]
         }
 
         return (
@@ -65,9 +65,7 @@ class RadarPerformance extends React.Component {
                             stroke="#FFFFFF"
                             tickLine={false}
                             fontSize={12}
-                            tickFormatter={updateKind}
-                        
-                        />
+                            tickFormatter={updateKind} />
 
                         <PolarRadiusAxis
                             axisLine={false}

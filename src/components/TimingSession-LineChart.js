@@ -85,7 +85,7 @@ class TimingSession extends React.Component {
 
                         <YAxis 
                             type={'number'}
-                            domain={['dataMin -10', 'dataMax + 20']}
+                            domain={['dataMin -15', 'dataMax + 30']}
                             axisLine={false}
                             tick={false}                            
                             dataKey="sessionLength" />

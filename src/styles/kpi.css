@@ -3,4 +3,36 @@
     height: 263px;
     border-radius: 5px;
     border: 3px solid rgb(0, 77, 128);
+    position:relative 
 }
+.title-kpi{
+    color:#20253A;
+    font-family : 'Roboto', sans-serif ;
+    font-size: 15px;
+    margin:0;    
+    text-align: start;
+    font-weight: bold;
+    position: absolute;
+    top:24px;
+    left:30px
+}
+
+.text-kpi{
+color:#282D30;
+font-family : 'Roboto', sans-serif ;
+font-size: 16px;
+width: 95px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin: 0;
+position: absolute;
+top: 100px;
+left:85px
+}
+
+.text-kpi span{
+    font-weight: 700;
+    font-size: 26px;
+    color: black;
+    }

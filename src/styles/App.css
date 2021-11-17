@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  border: 3px solid green;
+  border: 1px solid green;
   /* max-width: 1440px; */
+  position:relative
 }
 
 .App-logo {

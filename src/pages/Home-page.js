@@ -7,9 +7,7 @@ import '../styles/home-page.css'
 import Activity from '../components/Activity-BarChart.js'
 import TimingSession from '../components/TimingSession-LineChart.js'
 import RadarPerformance from '../components/Radar-RadarChart.js'
-import KPI from '../components/KPI-RadialBarChart.js'
-
-
+import KPI from '../components/KPI-PieChart.js'
 
 
 class HomePage extends React.Component {
