@@ -16,11 +16,9 @@ class App extends React.Component {
 
       <div className="App">
         <Router>
-
           <Header />
           <NavBarLeft/>
           <HomePage/>
-
         </Router>
       </div>
 

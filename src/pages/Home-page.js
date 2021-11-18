@@ -9,6 +9,7 @@ import TimingSession from '../components/TimingSession-LineChart.js'
 import RadarPerformance from '../components/Radar-RadarChart.js'
 import KPI from '../components/KPI-PieChart.js'
 import Tag from '../components/Tag.js'
+import CallAPI from '../data/Axios-API.js'
 
 //import des icones Tags
 import logo_Calories from '../assets/Calories.png'
@@ -22,10 +23,10 @@ class HomePage extends React.Component {
         //initialisation des données
         this.state = {
             firstName: "",
-            calorieCount: "",
-            proteinCount: "",
-            carbohydrateCount: "",
-            lipidCount: "",
+            calorieCount: 0,
+            proteinCount: 0,
+            carbohydrateCount: 0,
+            lipidCount: 0,
         }
     }
 
@@ -33,6 +34,8 @@ class HomePage extends React.Component {
         const AdressLink = "http://localhost:3001/user/"
         const UserIdentification = 18;
         axios.get(AdressLink + UserIdentification)
+       
+
 
             .then((request) => {
                 const Information = request.data.data;
@@ -46,10 +49,10 @@ class HomePage extends React.Component {
                 //remplissage des données
                 this.setState(() => ({
                     firstName: Information.userInfos.firstName,
-                    calorieCount: ((Information.keyData.calorieCount) / 1000) + "KCal",
-                    proteinCount: (Information.keyData.proteinCount) + "g",
-                    carbohydrateCount: (Information.keyData.carbohydrateCount) + "g",
-                    lipidCount: (Information.keyData.lipidCount) + "g"
+                    calorieCount: ((Information.keyData.calorieCount) / 1000) ,
+                    proteinCount: (Information.keyData.proteinCount),
+                    carbohydrateCount: (Information.keyData.carbohydrateCount),
+                    lipidCount: (Information.keyData.lipidCount)
                 }))
             })
     }
@@ -72,10 +75,10 @@ class HomePage extends React.Component {
                         </div>
                     </div>
                     <div className='container-allTags'>
-                        <Tag iconTag={logo_Calories} valueOfTag={this.state.calorieCount} textOfTag={"Calories"} />
-                        <Tag iconTag={logo_Proteines} valueOfTag={this.state.proteinCount} textOfTag={"Protéines"} />
-                        <Tag iconTag={logo_Glucides} valueOfTag={this.state.proteinCount} textOfTag={"Glucides"} />
-                        <Tag iconTag={logo_Lipides} valueOfTag={this.state.lipidCount} textOfTag={"Lipides"} />
+                        <Tag iconTag={logo_Calories} valueOfTag={this.state.calorieCount} unitOfTag={"KCal"} textOfTag={"Calories"} />
+                        <Tag iconTag={logo_Proteines} valueOfTag={this.state.proteinCount} unitOfTag={"g"} textOfTag={"Protéines"} />
+                        <Tag iconTag={logo_Glucides} valueOfTag={this.state.proteinCount} unitOfTag={"g"} textOfTag={"Glucides"} />
+                        <Tag iconTag={logo_Lipides} valueOfTag={this.state.lipidCount} unitOfTag={"g"} textOfTag={"Lipides"} />
                     </div>
                 </div>
 
@@ -85,3 +88,5 @@ class HomePage extends React.Component {
 }
 
 export default HomePage
+
+
