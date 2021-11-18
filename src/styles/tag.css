@@ -2,10 +2,10 @@
     width: 258px;
     height: 124px;
     background-color: #FBFBFB;
-    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 5px;
 }
 
 .icon-tag{

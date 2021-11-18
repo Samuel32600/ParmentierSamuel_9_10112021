@@ -2,8 +2,8 @@
     width: 835px;
     height: 320px;
     border-radius: 5px;
-    border: 3px solid yellow;
-    color: #9B9EAC
+    margin-bottom: 28px;
+    background-color: #FBFBFB;
 }
 
 .title-graph-activity {

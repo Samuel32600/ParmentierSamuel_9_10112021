@@ -1,15 +1,11 @@
 .container-home-page {
-    border: 1px solid blue;
-    width: 1126px;
-    height: 779px;
-    background-color: #E5E5E5;
+    width: 1126px;    
     position:absolute;
     top: 159px;
     left: 224px;
 }
 
 .box-title{
-    border: 1px solid green;
     display: flex;
     flex-direction: column;
     align-items: flex-start
@@ -22,7 +18,8 @@
     width: 80%;
     text-align: start;
     margin: 0;
-    margin-bottom: 41px; 
+    margin-top: -25px;
+    margin-bottom: 30px;
 }
 
 .firstName{
@@ -40,16 +37,28 @@
     margin-bottom: 77px;
 }
 
-.container-graphic{
-    border: 1px solid red;
+.container-allGraphic-allTags{
+    width:1126px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.container-allgraphic{
     display: flex;
     flex-direction: column;
+    margin-left: 2px;
 }
 
 .container-small-graphic{
-    border: 1px solid blue;
     width: 835px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+}
+
+.container-allTags{
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }

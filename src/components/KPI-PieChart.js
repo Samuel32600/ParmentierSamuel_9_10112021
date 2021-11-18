@@ -33,7 +33,7 @@ class KPI extends React.Component {
     render() {
 
         const FullCircle = [
-            { value: 100, fill: "#FBFBFB" },
+            { value: 100, fill: "#FFFFFF" },
         ];
 
         //link pour l'Id 18
@@ -50,7 +50,7 @@ class KPI extends React.Component {
             //valeur du score
             { value: (linkScore * 100), fill: "#FF0000" },
             //valeur restante pour arriver à 100%
-            { value: 100 - (linkScore * 100), fill: "#FBFBFB" },
+            { value: 100 - (linkScore * 100), fill: 'transparent' },
         ];
 
         // const linkScore =  this.state.resultscore.todayScore
@@ -72,7 +72,7 @@ class KPI extends React.Component {
                             dataKey="value"
                             cx="50%"
                             cy="50%"
-                            outerRadius={90}
+                            outerRadius={80}
                             strokeWidth={0} />
 
                         <Pie
@@ -81,8 +81,8 @@ class KPI extends React.Component {
                             name="A1"
                             cx="50%"
                             cy="50%"
-                            innerRadius={90}
-                            outerRadius={95}
+                            innerRadius={80}
+                            outerRadius={90}
                             cornerRadius={10}
                             strokeWidth={0}
                             startAngle={90}

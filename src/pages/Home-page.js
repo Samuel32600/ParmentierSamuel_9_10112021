@@ -11,10 +11,10 @@ import KPI from '../components/KPI-PieChart.js'
 import Tag from '../components/Tag.js'
 
 //import des icones Tags
-import logo_Calories from'../assets/Calories.png'
-import logo_Proteines from'../assets/Proteines.png'
-import logo_Glucides from'../assets/Glucides.png'
-import logo_Lipides from'../assets/Lipides.png'
+import logo_Calories from '../assets/Calories.png'
+import logo_Proteines from '../assets/Proteines.png'
+import logo_Glucides from '../assets/Glucides.png'
+import logo_Lipides from '../assets/Lipides.png'
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -38,18 +38,18 @@ class HomePage extends React.Component {
                 const Information = request.data.data;
                 //appel dans la console
                 // console.log(Information.userInfos.firstName)
-                console.log(Information.keyData.calorieCount, "Calories")
-                console.log(Information.keyData.proteinCount, "Protéines")
-                console.log(Information.keyData.carbohydrateCount, "Glucides")
-                console.log(Information.keyData.lipidCount, "Lipides")
+                // console.log(Information.keyData.calorieCount, "Calories")
+                // console.log(Information.keyData.proteinCount, "Protéines")
+                // console.log(Information.keyData.carbohydrateCount, "Glucides")
+                // console.log(Information.keyData.lipidCount, "Lipides")
 
                 //remplissage des données
                 this.setState(() => ({
                     firstName: Information.userInfos.firstName,
-                    calorieCount: ((Information.keyData.calorieCount)/1000)+"KCal",
-                    proteinCount: (Information.keyData.proteinCount)+"g",
-                    carbohydrateCount: (Information.keyData.carbohydrateCount)+"g",
-                    lipidCount: (Information.keyData.lipidCount)+"g"
+                    calorieCount: ((Information.keyData.calorieCount) / 1000) + "KCal",
+                    proteinCount: (Information.keyData.proteinCount) + "g",
+                    carbohydrateCount: (Information.keyData.carbohydrateCount) + "g",
+                    lipidCount: (Information.keyData.lipidCount) + "g"
                 }))
             })
     }
@@ -62,21 +62,21 @@ class HomePage extends React.Component {
                     <h1 className='title'>Bonjour <span className='firstName'>{this.state.firstName}</span> </h1>
                     <h2 className='subtitle'>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
                 </div>
-
-                <div className='container-graphic'>
-                    <Activity />
-                    <div className='container-small-graphic'>
-                        <TimingSession/>
-                        <RadarPerformance/>
-                        <KPI/>
+                <div className='container-allGraphic-allTags'>
+                    <div className='container-allgraphic'>
+                        <Activity />
+                        <div className='container-small-graphic'>
+                            <TimingSession />
+                            <RadarPerformance />
+                            <KPI />
+                        </div>
                     </div>
-                </div>
-
-                <div>
-                    <Tag iconTag={logo_Calories} valueOfTag={this.state.calorieCount} textOfTag={"Calories"} />
-                    <Tag iconTag={logo_Proteines} valueOfTag={this.state.proteinCount} textOfTag={"Protéines"} />
-                    <Tag iconTag={logo_Glucides} valueOfTag={this.state.proteinCount} textOfTag={"Glucides"} />
-                    <Tag iconTag={logo_Lipides} valueOfTag={this.state.lipidCount} textOfTag={"Lipides"} />
+                    <div className='container-allTags'>
+                        <Tag iconTag={logo_Calories} valueOfTag={this.state.calorieCount} textOfTag={"Calories"} />
+                        <Tag iconTag={logo_Proteines} valueOfTag={this.state.proteinCount} textOfTag={"Protéines"} />
+                        <Tag iconTag={logo_Glucides} valueOfTag={this.state.proteinCount} textOfTag={"Glucides"} />
+                        <Tag iconTag={logo_Lipides} valueOfTag={this.state.lipidCount} textOfTag={"Lipides"} />
+                    </div>
                 </div>
 
             </div>
