@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/left-nav-bar.css'
 
+//import des logos
 import Yoga from '../assets/yoga.png';
 import Swimming from'../assets/swimming.png'
 import Cycling from'../assets/cycling.png'

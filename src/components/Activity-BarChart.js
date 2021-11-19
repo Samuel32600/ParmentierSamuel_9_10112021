@@ -1,5 +1,6 @@
 import React from 'react'
-import axios from 'axios'
+import CallAPI from '../data/Axios-API';
+
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 import '../styles/activity.css'
@@ -13,13 +14,9 @@ class Activity extends React.Component {
             elementOfSessions: []
         }
     }
- 
 
     componentDidMount() {
-        const AdressLink = "http://localhost:3001/user/"
-        const UserIdentification = 18;
-        const Type = "/activity"
-        axios.get(AdressLink + UserIdentification + Type)
+        CallAPI.graphActivity()
 
             .then((request) => {
                 const DataActivity = request.data.data

@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from 'axios'
+import CallAPI from '../data/Axios-API.js'
 
 import '../styles/home-page.css'
 
@@ -9,7 +9,7 @@ import TimingSession from '../components/TimingSession-LineChart.js'
 import RadarPerformance from '../components/Radar-RadarChart.js'
 import KPI from '../components/KPI-PieChart.js'
 import Tag from '../components/Tag.js'
-import CallAPI from '../data/Axios-API.js'
+
 
 //import des icones Tags
 import logo_Calories from '../assets/Calories.png'
@@ -22,7 +22,7 @@ class HomePage extends React.Component {
         super(props)
         //initialisation des données
         this.state = {
-            firstName: "",
+            firstName: '',
             calorieCount: 0,
             proteinCount: 0,
             carbohydrateCount: 0,
@@ -31,15 +31,10 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        const AdressLink = "http://localhost:3001/user/"
-        const UserIdentification = 18;
-        axios.get(AdressLink + UserIdentification)
-       
-
+        CallAPI.dataUser()
 
             .then((request) => {
                 const Information = request.data.data;
-                //appel dans la console
                 // console.log(Information.userInfos.firstName)
                 // console.log(Information.keyData.calorieCount, "Calories")
                 // console.log(Information.keyData.proteinCount, "Protéines")
@@ -49,7 +44,7 @@ class HomePage extends React.Component {
                 //remplissage des données
                 this.setState(() => ({
                     firstName: Information.userInfos.firstName,
-                    calorieCount: ((Information.keyData.calorieCount) / 1000) ,
+                    calorieCount: ((Information.keyData.calorieCount) / 1000),
                     proteinCount: (Information.keyData.proteinCount),
                     carbohydrateCount: (Information.keyData.carbohydrateCount),
                     lipidCount: (Information.keyData.lipidCount)

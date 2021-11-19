@@ -24,9 +24,11 @@ class Tag extends React.Component {
 
 export default Tag
 
+//definition des contraintes sur les props
 Tag.propTypes={
     valueOfTag: PropTypes.number,
     unitOfTag: PropTypes.string,
-    textOfTag:PropTypes.string,
+    textOfTag: PropTypes.string,
+    iconTag: PropTypes.string
 }
 

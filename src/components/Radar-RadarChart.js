@@ -1,5 +1,6 @@
 import React from 'react'
-import axios from 'axios'
+import CallAPI from '../data/Axios-API.js'
+
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 import '../styles/radar.css'
@@ -15,10 +16,8 @@ class RadarPerformance extends React.Component {
         }
     }
     componentDidMount() {
-        const AdressLink = "http://localhost:3001/user/"
-        const UserIdentification = 18;
-        const Type = "/performance"
-        axios.get(AdressLink + UserIdentification + Type)
+        CallAPI.graphRadar()
+
             .then((request) => {
                 const DataKind = request.data.data
                 // console.log(request.data.data.kind)

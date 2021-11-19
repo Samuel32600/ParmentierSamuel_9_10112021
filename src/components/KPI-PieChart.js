@@ -1,7 +1,7 @@
 import React from 'react'
-import axios from 'axios'
-import { ResponsiveContainer, PieChart, Pie, } from 'recharts';
+import CallAPI from '../data/Axios-API.js'
 
+import { ResponsiveContainer, PieChart, Pie, } from 'recharts';
 
 import '../styles/kpi.css'
 
@@ -15,9 +15,7 @@ class KPI extends React.Component {
         }
     }
     componentDidMount() {
-        const AdressLink = "http://localhost:3001/user/"
-        const UserIdentification = 18;
-        axios.get(AdressLink + UserIdentification)
+        CallAPI.graphKPI()
 
             .then((request) => {
                 const DataKPI = request.data.data
@@ -53,15 +51,6 @@ class KPI extends React.Component {
             { value: 100 - (linkScore * 100), fill: 'transparent' },
         ];
 
-        // const linkScore =  this.state.resultscore.todayScore
-        // console.log(linkScore)
-        // const smallCircle = [
-        //     //valeur restante pour arriver à 100%
-        //     {  value: 100-(linkScore*100), fill: "#FBFBFB" },
-        //     //valeur du score
-        //     {  value: (linkScore*100), fill: "#FF0000" },
-        // ];
-
         return (
             <div className='container-kpi'>
                 <p className='title-kpi'>Score</p>
@@ -95,7 +84,6 @@ class KPI extends React.Component {
                     <span>{linkScore * 100}% </span>
                     de votre objectif
                 </p>
-
             </div>
         )
     }
