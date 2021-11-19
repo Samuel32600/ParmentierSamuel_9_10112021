@@ -1,7 +1,7 @@
 import React from 'react'
 import CallAPI from '../data/Axios-API.js'
 
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 import '../styles/radar.css'
 
@@ -9,7 +9,7 @@ class RadarPerformance extends React.Component {
 
     constructor(props) {
         super(props)
-        //initialisation des données
+        //data init for RadarChart
         this.state = {
             elementOfKind: [],
             valueOfKind: {}
@@ -23,7 +23,7 @@ class RadarPerformance extends React.Component {
                 // console.log(request.data.data.kind)
                 // console.log(request.data.data.data)
 
-                //remplissage des données
+                //data definition for RadarChart
                 this.setState(() => ({
                     elementOfKind: DataKind.Kind,
                     valueOfKind: DataKind.data
@@ -33,7 +33,8 @@ class RadarPerformance extends React.Component {
 
     render() {
 
-        // constante pour convertir les chiffres en type pour le radar
+        
+        // const for convert number in Category
         const categoryKind = {
             1: "Cardio",
             2: "Energie",
@@ -44,6 +45,11 @@ class RadarPerformance extends React.Component {
         }
 
         // modification du formalisme des valeurs du radar
+        /**
+         * modify  number value of Kind in  a string Category
+         * @param {object.<number>} {tickItem} value by default: 1
+         * @returns {string} new value: Cardio
+         */
         const updateKind = (tickItem) => {
             return categoryKind[tickItem]
         }

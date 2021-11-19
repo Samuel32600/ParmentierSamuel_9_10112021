@@ -9,7 +9,7 @@ class KPI extends React.Component {
 
     constructor(props) {
         super(props)
-        //initialisation des données
+        //data init for PieChart
         this.state = {
             resultscore: []
         }
@@ -22,6 +22,7 @@ class KPI extends React.Component {
                 // console.log(request.data.data.score)
                 // console.log(request.data.data.todayScore)
 
+                //data definition for PieChart
                 this.setState(() => ({
                     resultscore: DataKPI
                 }))
@@ -34,20 +35,30 @@ class KPI extends React.Component {
             { value: 100, fill: "#FFFFFF" },
         ];
 
-        //link pour l'Id 18
+        
+        /**
+         * link for Id 18 = LinkScore
+         * Link for Id 12 = LinkTodayScore
+         */
         let linkScore = this.state.resultscore.score
-        //link pour l'Id 12
         const LinkTodayScore = this.state.resultscore.todayScore
          
-        //condition pour changer le link en fonction de l'id utilisateur
+        /**
+         * condition to change the link in function of the user ID
+         */
         if(linkScore === undefined){
             linkScore = LinkTodayScore
         }
 
-        const smallCircle = [   
-            //valeur du score
+        const smallCircle = [  
+            /**
+             * score value
+             */        
             { value: (linkScore * 100), fill: "#FF0000" },
-            //valeur restante pour arriver à 100%
+            
+            /**
+             * remainning value to reach 100%
+             */          
             { value: 100 - (linkScore * 100), fill: 'transparent' },
         ];
 

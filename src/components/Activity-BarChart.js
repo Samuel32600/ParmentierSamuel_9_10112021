@@ -9,7 +9,7 @@ class Activity extends React.Component {
 
     constructor(props) {
         super(props)
-        //initialisation des données
+        //data init for BarChart
         this.state = {
             elementOfSessions: []
         }
@@ -22,7 +22,7 @@ class Activity extends React.Component {
                 const DataActivity = request.data.data
                 // console.log(request.data.data.sessions)
 
-                //remplissage des données
+                //data definition for BarChart
                 this.setState(() => ({
                     elementOfSessions: DataActivity.sessions,
                 }))
@@ -31,7 +31,11 @@ class Activity extends React.Component {
 
     render() {
 
-        // modification du formalisme de l'axe des abscisses
+        /**
+         * modify unit value on X Axis on Barchart
+         * @param {object.<string>} {tickItem} value by default: year-month-day ex:(2020-07-01)
+         * @returns {number} new value: number ex:(1)
+         */
         const formatXAxis = (tickItem) => {
             if (typeof tickItem === 'string') {
                 // console.log(tickItem)
@@ -39,8 +43,12 @@ class Activity extends React.Component {
             }
         }
 
-        // definition info bulle poids + calories
-        const CustomTooltip = ({ active, payload, label }) => {
+        /**
+         * modify  unit format of Tooltip on BarChart
+         * @param {object} {payload.value} value by default: xx Kilogram + xx calories
+         * @returns {string} new value: xxKg + xxKCal
+         */
+        const CustomTooltip = ({ active, payload }) => {
             if (active && payload && payload.length) {
                 return (
                     <div className="custom-tooltip-BarChart">
@@ -52,7 +60,11 @@ class Activity extends React.Component {
             return null;
         };
 
-        // modification du formalisme de la legende
+        /**
+         * modify format of the legend on BarChart
+         * @param {object} {Legend} value by default: Kilogram 
+         * @returns {string} new value: Poids (Kg) or Calories brûlées (KCal) 
+         */
         const updateLegend = (legend) => {
             if (legend === "kilogram") {
                 legend = "Poids (kg)"
@@ -79,7 +91,8 @@ class Activity extends React.Component {
                             top: 0,
                             right: 29,
                             left: 32,
-                            bottom: 10}} >
+                            bottom: 10
+                        }} >
 
                         <CartesianGrid
                             strokeDasharray="3 3"

@@ -9,7 +9,7 @@ class TimingSession extends React.Component {
 
     constructor(props) {
         super(props)
-        //initialisation des données
+        //data init for LineChart
         this.state = {
             elementOfSessions: []
         }
@@ -21,7 +21,7 @@ class TimingSession extends React.Component {
                 const DataTimingSession = request.data.data
                 // console.log(request.data.data.sessions)
 
-                //remplissage des données
+                //data definition for LineChart
                 this.setState(() => ({
                     elementOfSessions: DataTimingSession.sessions,
                 }))
@@ -30,7 +30,7 @@ class TimingSession extends React.Component {
 
     render() {
 
-        // constante pour convertir les chiffres en jour
+        // const for convert number in day
         const day = {
             1: "L",
             2: "M",
@@ -41,12 +41,21 @@ class TimingSession extends React.Component {
             7: "D",
         }
 
-        // modification du formalisme de l'axe des abscisses
+        /**
+         * modify unit value on X Axis (number by day of week) on LineChart
+         * @param {object.<number>} {tickItem} value by default: 1
+         * @returns {string} new value: L
+         */
         const updateDay = (tickItem) => {
             return day[tickItem]
         }
 
         // definition info bulle poids + calories
+        /**
+         * modify  unit format of Tooltip on LineChart
+         * @param {object} {payload.value} value by default: number ex:(30)
+         * @returns {string} new value: number + timing in minutes ex:(30min)
+         */
         const CustomTooltip = ({ active, payload }) => {
             if (active && payload && payload.length) {
                 return (
