@@ -1,23 +1,23 @@
 {
-    "opts": {
-        "destination": "doc/",
-        "recurse": true
+    "tags": {
+      "allowUnknownTags": ["component"],
+      "dictionaries": ["jsdoc", "closure"]
     },
-
     "source": {
-        "include": ["./src", "./src/components"],
-        "includePattern": "\\.(jsx|js|ts|tsx)$",
-        "excludePattern": "(node_modules/|doc)"
-
+      "include": ["src/components" , "src/data" ],
+      "includePattern": ".+\\.js(doc|x)?$",
+      "excludePattern": "(^|\\/|\\\\)_"
     },
-
-    "plugins": [
-        "plugins/markdown"
-    ],
-
+    "plugins": ["plugins/markdown", "node_modules/better-docs/component"],
     "templates": {
-        "cleverLinks": true,
-        "monospaceLinks" : true
+      "better-docs": {
+        "logo": "../src/assets/logo-header.png"
       }
-
-}
+    },
+    "opts": {
+      "template": "node_modules/better-docs",
+      "destination": "docs",
+      "recurse": true,
+      "readme": "README.md"
+    }
+  }
