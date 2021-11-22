@@ -9,6 +9,8 @@ In the project directory, you can run:
 npm install
 npm start
 
+for information the command 'nmp start' will open an internet window ont he following port: http://localhost:3000
+
 
 2. Backend project
 Backend repository: sportsee/API
@@ -25,8 +27,8 @@ axios
 to install axios : enter command in the terminal "npm install axios"
 add axios with react : enter command in the terminal "yarn add axios"
 
-2.3. Endpoints
-2.3.1 Possible endpoints
+2.2. Endpoints
+2.2.1 Possible endpoints
 This project includes four endpoints that you will be able to use:
 
 http://localhost:3001/user/${userId} - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
@@ -35,7 +37,7 @@ http://localhost:3001/user/${userId}/average-sessions - retrieves the average se
 http://localhost:3001/user/${userId}/performance - retrieves a user's performance (energy, endurance, etc.).
 Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.
 
-2.3.2 Examples of queries
+2.2.2 Examples of queries
 http://localhost:3001/user/12/performance - Retrieves the performance of the user with id 12
 http://localhost:3001/user/18 - Retrieves user 18's main information.
 
