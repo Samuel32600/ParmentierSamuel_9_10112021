@@ -1,9 +1,8 @@
+// import logo from './logo.svg'
 import React from 'react'
 import '../styles/App.css'
 
-// import logo from './logo.svg'
-
-//import des components
+//import components
 import Header from './Header';
 import NavBarLeft from './Left-Nav-Bar';
 import HomePage from '../pages/Home-page';

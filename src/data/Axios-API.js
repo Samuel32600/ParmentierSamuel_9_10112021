@@ -1,31 +1,47 @@
 import axios from 'axios'
 
+/**
+* generic address for the call API
+*/
 const AdressLink = "http://localhost:3001/user/"
 
-//constante pour definir le profil utilisateur
-const UserIdentification = 18;
+/**
+* const to define the user Profil
+*/
+const UserIdentification = 8000;
 
-//Call pour le prenom + 4 tags
-function dataUser () {
+/**
+* function for call the firstName + data in for 4 tags
+*/
+function dataUser() {
     return axios.get(AdressLink + UserIdentification)
 }
-//call pour le graphique activité
-function graphActivity () {
-    return axios.get(AdressLink + UserIdentification +"/activity")
+
+/**
+* function for call the data on activity graph
+*/
+function graphActivity() {
+    return axios.get(AdressLink + UserIdentification + "/activity")
 }
 
-//call pour le graphique activité
-function graphTimingSession () {
-    return axios.get(AdressLink + UserIdentification +"/average-sessions")
+/**
+* function for call the data on timing session graph
+*/
+function graphTimingSession() {
+    return axios.get(AdressLink + UserIdentification + "/average-sessions")
 }
 
-//call pour le graphique Radar
+/**
+* function for call the data on Radar graph
+*/
 function graphRadar() {
-    return axios.get(AdressLink + UserIdentification +"/performance")
+    return axios.get(AdressLink + UserIdentification + "/performance")
 }
 
-//call pour le graphique KPI Score
-function graphKPI () {
+/**
+* function for call the data on Score graph
+*/
+function graphKPI() {
     return axios.get(AdressLink + UserIdentification)
 }
 

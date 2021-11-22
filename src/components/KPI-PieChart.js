@@ -35,7 +35,6 @@ class KPI extends React.Component {
             { value: 100, fill: "#FFFFFF" },
         ];
 
-        
         /**
          * link for Id 18 = LinkScore
          * Link for Id 12 = LinkTodayScore
