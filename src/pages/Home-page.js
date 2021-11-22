@@ -27,6 +27,7 @@ class HomePage extends React.Component {
             proteinCount: 0,
             carbohydrateCount: 0,
             lipidCount: 0,
+            error: false
         }
     }
 
@@ -49,35 +50,45 @@ class HomePage extends React.Component {
                     carbohydrateCount: (Information.keyData.carbohydrateCount),
                     lipidCount: (Information.keyData.lipidCount)
                 }))
+                    
+            })
+
+            .catch(() => {                
+                this.setState({
+                    error: true
+                })
             })
     }
 
 
     render() {
         return (
+            this.state.error ? (
+                <div className="error">Error, user ID not defined</div>                
+            ) : 
             <div className='container-home-page'>
-                <div className='box-title'>
-                    <h1 className='title'>Bonjour <span className='firstName'>{this.state.firstName}</span> </h1>
-                    <h2 className='subtitle'>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
-                </div>
-                <div className='container-allGraphic-allTags'>
-                    <div className='container-allgraphic'>
-                        <Activity />
-                        <div className='container-small-graphic'>
-                            <TimingSession />
-                            <RadarPerformance />
-                            <KPI />
+                    <div className='box-title'>
+                        <h1 className='title'>Bonjour <span className='firstName'>{this.state.firstName}</span> </h1>
+                        <h2 className='subtitle'>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
+                    </div>
+                    <div className='container-allGraphic-allTags'>
+                        <div className='container-allgraphic'>
+                            <Activity />
+                            <div className='container-small-graphic'>
+                                <TimingSession />
+                                <RadarPerformance />
+                                <KPI />
+                            </div>
+                        </div>
+                        <div className='container-allTags'>
+                            <Tag iconTag={logo_Calories} valueOfTag={this.state.calorieCount} unitOfTag={"KCal"} textOfTag={"Calories"} />
+                            <Tag iconTag={logo_Proteines} valueOfTag={this.state.proteinCount} unitOfTag={"g"} textOfTag={"Protéines"} />
+                            <Tag iconTag={logo_Glucides} valueOfTag={this.state.proteinCount} unitOfTag={"g"} textOfTag={"Glucides"} />
+                            <Tag iconTag={logo_Lipides} valueOfTag={this.state.lipidCount} unitOfTag={"g"} textOfTag={"Lipides"} />
                         </div>
                     </div>
-                    <div className='container-allTags'>
-                        <Tag iconTag={logo_Calories} valueOfTag={this.state.calorieCount} unitOfTag={"KCal"} textOfTag={"Calories"} />
-                        <Tag iconTag={logo_Proteines} valueOfTag={this.state.proteinCount} unitOfTag={"g"} textOfTag={"Protéines"} />
-                        <Tag iconTag={logo_Glucides} valueOfTag={this.state.proteinCount} unitOfTag={"g"} textOfTag={"Glucides"} />
-                        <Tag iconTag={logo_Lipides} valueOfTag={this.state.lipidCount} unitOfTag={"g"} textOfTag={"Lipides"} />
-                    </div>
-                </div>
 
-            </div>
+                </div>
         )
     }
 }
