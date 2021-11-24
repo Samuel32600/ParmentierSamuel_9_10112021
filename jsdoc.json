@@ -1,12 +1,11 @@
 {
-
   "opts": {
       "destination": "doc/",
       "recurse": true
   },
 
   "source": {
-      "include": ["./src"],
+      "include": ["./src/components", "./src/data"],
       "includePattern": "\\.(jsx|js|ts|tsx)$",
       "excludePattern": "(node_modules/|doc)"
   },
