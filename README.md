@@ -44,6 +44,7 @@ http://localhost:3001/user/18 - Retrieves user 18's main information.
 
 3. Update documentation
 Use Jsdoc to comment the code to keep the documentation up to date.
+to uddate JsDOC, enter command in the terminal "yarn docs"
 
 
 4. Libreries
