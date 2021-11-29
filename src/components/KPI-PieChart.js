@@ -35,29 +35,22 @@ class KPI extends React.Component {
             { value: 100, fill: "#FFFFFF" },
         ];
 
-        /**
-         * link for Id 18 = LinkScore
-         * Link for Id 12 = LinkTodayScore
-         */
+        // Link for the different user's
+        // link for Id 18 = LinkScore
+        // Link for Id 12 = LinkTodayScore        
         let linkScore = this.state.resultscore.score
         const LinkTodayScore = this.state.resultscore.todayScore
          
-        /**
-         * condition to change the link in function of the user ID
-         */
+        //condition to change the link in function of the user ID
         if(linkScore === undefined){
             linkScore = LinkTodayScore
         }
 
         const smallCircle = [  
-            /**
-             * score value
-             */        
+            //score value of user
             { value: (linkScore * 100), fill: "#FF0000" },
             
-            /**
-             * remainning value to reach 100%
-             */          
+            //remainning value to reach 100%          
             { value: 100 - (linkScore * 100), fill: 'transparent' },
         ];
 

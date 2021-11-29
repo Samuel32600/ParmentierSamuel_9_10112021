@@ -5,7 +5,12 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 
 import '../styles/activity.css'
 
-
+/**
+ * define class Activity
+ * @component
+ * 
+ * @return {component}
+ */
 class Activity extends React.Component {
 
     constructor(props) {
@@ -30,52 +35,67 @@ class Activity extends React.Component {
             })
     }
 
+    /**
+     * modify unit value on X Axis on Barchart
+     * @method
+     * @param {object.<string>} {tickItem} value by default: string
+     * 
+     * @return {number} new value: number
+     * @example
+     * let result = formatXAxis("2020-07-01")
+     * console.log(result) // display 1
+     */
+    formatXAxis = (tickItem) => {
+        if (typeof tickItem === 'string') {
+            // console.log(tickItem)
+            return tickItem.substring(tickItem.length - 1, tickItem.length)
+        }
+    }
+
+    /**
+     * modify  unit format of Tooltip on BarChart
+     * @method
+     * @param {object} {payload.value} value by default: xx Kilogram + xx calories
+     * 
+     * @return {string} new value: xxKg + xxKCal
+     * @example
+     * let result = Tooltip("Kilogram":80, "calories":240)
+     * console.log(result) // display "80Kg" + "240KCal"
+     */
+    CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className="custom-tooltip-BarChart">
+                    <p className="label1">{`${payload[0].value}`}Kg</p>
+                    <p className="label2">{`${payload[1].value}`}Kcal</p>
+                </div>
+            );
+        }
+        return null;
+    };
+
+    /**
+     * modify format of the legend on BarChart
+     * @method
+     * @param {object} {Legend} value by default: string "Kilogram"
+     * 
+     * @return {string} new value: string "Poids (Kg)" or "Calories brûlées (KCal)"
+     * @example
+     * let result = Legend ("Kilogram" or "calories")
+     * console.log(result) // display "Poids (Kg)" and "Calories brulées (KCal)"
+     */
+    updateLegend = (legend) => {
+        if (legend === "kilogram") {
+            legend = "Poids (kg)"
+        }
+        else {
+            legend = "Calories brûlées (KCal)"
+        }
+        // legend = legend === "kilogram" ? "Poids (kg)" : "Calories brûlées (KCal)"
+        return <span className='text-legend'>{legend}</span>
+    }
+
     render() {
-
-        /**
-         * modify unit value on X Axis on Barchart
-         * @param {object.<string>} {tickItem} value by default: year-month-day ex:(2020-07-01)
-         * @returns {number} new value: number ex:(1)
-         */
-        const formatXAxis = (tickItem) => {
-            if (typeof tickItem === 'string') {
-                // console.log(tickItem)
-                return tickItem.substring(tickItem.length - 1, tickItem.length)
-            }
-        }
-
-        /**
-         * modify  unit format of Tooltip on BarChart
-         * @param {object} {payload.value} value by default: xx Kilogram + xx calories
-         * @returns {string} new value: xxKg + xxKCal
-         */
-        const CustomTooltip = ({ active, payload }) => {
-            if (active && payload && payload.length) {
-                return (
-                    <div className="custom-tooltip-BarChart">
-                        <p className="label1">{`${payload[0].value}`}Kg</p>
-                        <p className="label2">{`${payload[1].value}`}Kcal</p>
-                    </div>
-                );
-            }
-            return null;
-        };
-
-        /**
-         * modify format of the legend on BarChart
-         * @param {object} {Legend} value by default: Kilogram 
-         * @returns {string} new value: Poids (Kg) or Calories brûlées (KCal) 
-         */
-        const updateLegend = (legend) => {
-            if (legend === "kilogram") {
-                legend = "Poids (kg)"
-            }
-            else {
-                legend = "Calories brûlées (KCal)"
-            }
-            // legend = legend === "kilogram" ? "Poids (kg)" : "Calories brûlées (KCal)"
-            return <span className='text-legend'>{legend}</span>
-        }
 
         return (
             <div className='container-activity'>
@@ -103,7 +123,7 @@ class Activity extends React.Component {
                             dataKey="day"
                             tickMargin={5}
                             tickLine={false}
-                            tickFormatter={formatXAxis}
+                            tickFormatter={this.formatXAxis}
                             stroke="#9B9EAC" />
 
                         <YAxis
@@ -116,13 +136,13 @@ class Activity extends React.Component {
                             stroke="#9B9EAC" />
 
                         <Tooltip
-                            content={<CustomTooltip />} />
+                            content={this.CustomTooltip} />
 
                         <Legend
                             verticalAlign="top"
                             align="right"
                             iconType="circle"
-                            formatter={updateLegend}
+                            formatter={this.updateLegend}
                             wrapperStyle={{ paddingBottom: 40, paddingTop: 20 }} />
 
                         <Bar

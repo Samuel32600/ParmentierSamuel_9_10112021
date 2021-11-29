@@ -5,6 +5,12 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'rec
 
 import '../styles/timingSession.css'
 
+/**
+ * define class TimingSession
+ * @component
+ * 
+ * @return {component}
+ */
 class TimingSession extends React.Component {
 
     constructor(props) {
@@ -28,7 +34,18 @@ class TimingSession extends React.Component {
             })
     }
 
-    render() {
+
+    /**
+     * modify unit value on X Axis (number by day of week) on LineChart
+     * @method
+     * @param {object.<number>} {tickItem} value by default: number
+     * 
+     * @returns {string} new value: string
+     * @example
+     * let result = tickItem (1)
+     * console.log(result) // display "L"
+     */
+    updateDay = (tickItem) => {
 
         // const for convert number in day
         const day = {
@@ -41,33 +58,33 @@ class TimingSession extends React.Component {
             7: "D",
         }
 
-        /**
-         * modify unit value on X Axis (number by day of week) on LineChart
-         * @param {object.<number>} {tickItem} value by default: 1
-         * @returns {string} new value: L
-         */
-        const updateDay = (tickItem) => {
-            return day[tickItem]
+        return day[tickItem]
+    }
+
+    /**
+     * modify  unit format of Tooltip on LineChart
+     * @method
+     * @param {object} {payload.value} value by default: number
+     * 
+     * @returns {string} new value: string "number + timing in minutes"
+     * @example
+     * let result = tickItem (30)
+     * console.log(result) // display "30min"
+     */
+    CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+            return (
+                <div className="custom-tooltip-LineChart">
+                    <p>{`${payload[0].value}`} min</p>
+
+                </div>
+            );
         }
+        return null;
+    };
 
-        // definition info bulle poids + calories
-        /**
-         * modify  unit format of Tooltip on LineChart
-         * @param {object} {payload.value} value by default: number ex:(30)
-         * @returns {string} new value: number + timing in minutes ex:(30min)
-         */
-        const CustomTooltip = ({ active, payload }) => {
-            if (active && payload && payload.length) {
-                return (
-                    <div className="custom-tooltip-LineChart">
-                        <p>{`${payload[0].value}`} min</p>
 
-                    </div>
-                );
-            }
-            return null;
-        };
-
+    render() {
 
         return (
             <div className='container-timingSession'>
@@ -88,17 +105,17 @@ class TimingSession extends React.Component {
                             axisLine={false}
                             tickLine={false}
                             stroke="#FFFFFF"
-                            tickFormatter={updateDay} />
+                            tickFormatter={this.updateDay} />
 
-                        <YAxis 
+                        <YAxis
                             type={'number'}
                             domain={['dataMin -15', 'dataMax + 30']}
                             axisLine={false}
-                            tick={false}                            
+                            tick={false}
                             dataKey="sessionLength" />
 
                         <Tooltip
-                            content={<CustomTooltip />} />
+                            content={this.CustomTooltip} />
 
 
                         <Line

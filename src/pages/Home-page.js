@@ -3,7 +3,7 @@ import CallAPI from '../data/Axios-API.js'
 
 import '../styles/home-page.css'
 
-// import des components
+// import of components
 import Activity from '../components/Activity-BarChart.js'
 import TimingSession from '../components/TimingSession-LineChart.js'
 import RadarPerformance from '../components/Radar-RadarChart.js'
@@ -11,7 +11,7 @@ import KPI from '../components/KPI-PieChart.js'
 import Tag from '../components/Tag.js'
 
 
-//import des icones Tags
+//import of icons Tags
 import logo_Calories from '../assets/Calories.png'
 import logo_Proteines from '../assets/Proteines.png'
 import logo_Glucides from '../assets/Glucides.png'
@@ -20,7 +20,7 @@ import logo_Lipides from '../assets/Lipides.png'
 class HomePage extends React.Component {
     constructor(props) {
         super(props)
-        //initialisation des données
+        //data init
         this.state = {
             firstName: '',
             calorieCount: 0,
@@ -42,7 +42,7 @@ class HomePage extends React.Component {
                 // console.log(Information.keyData.carbohydrateCount, "Glucides")
                 // console.log(Information.keyData.lipidCount, "Lipides")
 
-                //remplissage des données
+                //data definition for HomePage
                 this.setState(() => ({
                     firstName: Information.userInfos.firstName,
                     calorieCount: ((Information.keyData.calorieCount) / 1000),

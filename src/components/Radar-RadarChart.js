@@ -5,6 +5,12 @@ import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Responsi
 
 import '../styles/radar.css'
 
+/**
+ * define class RadarPerformance
+ * @component
+ * 
+ * @return {component}
+ */
 class RadarPerformance extends React.Component {
 
     constructor(props) {
@@ -31,9 +37,17 @@ class RadarPerformance extends React.Component {
             })
     }
 
-    render() {
+    /**
+     * modify  number value of Kind in  a string Category
+     * @method
+     * @param {object.<number>} {tickItem} value by default: number
+     * @return {string} new value: string
+     * @example
+     * let result = tickItem (1)
+     * console.log(result) // display "Cardio"
+     */
+    updateKind = (tickItem) => {
 
-        
         // const for convert number in Category
         const categoryKind = {
             1: "Cardio",
@@ -44,15 +58,10 @@ class RadarPerformance extends React.Component {
             6: "Intensité",
         }
 
-        // modification du formalisme des valeurs du radar
-        /**
-         * modify  number value of Kind in  a string Category
-         * @param {object.<number>} {tickItem} value by default: 1
-         * @returns {string} new value: Cardio
-         */
-        const updateKind = (tickItem) => {
-            return categoryKind[tickItem]
-        }
+        return categoryKind[tickItem]
+    }
+
+    render() {
 
         return (
             <div className='container-radar'>
@@ -70,7 +79,7 @@ class RadarPerformance extends React.Component {
                             stroke="#FFFFFF"
                             tickLine={false}
                             fontSize={12}
-                            tickFormatter={updateKind} />
+                            tickFormatter={this.updateKind} />
 
                         <PolarRadiusAxis
                             axisLine={false}

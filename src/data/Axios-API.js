@@ -1,52 +1,46 @@
 import axios from 'axios'
 
-/**
-* generic address for the call API
-*/
+//const to define the user Profil
+const UserIdentification = 18;
+
+
+// generic address for the call API
 const AdressLink = "http://localhost:3001/user/"
 
-/**
-* const to define the user Profil
-* @param {number} value by default: 12 or 18
-*/
-const UserIdentification = 12;
 
-/**
-* function for call the firstName + data in for 4 tags
-* return {promise} adress with firstname + quantity of 4 tags
-*/
+//function for call the firstName + data in for 4 tags
+//http://localhost:3001/user/${userId}
 function dataUser() {
     return axios.get(AdressLink + UserIdentification)
 }
 
-/**
-* function for call the data on activity graph
-* return {promise} adress with value Kg and KCal for one week
-*/
+
+//function for call the data on activity graph
+//http://localhost:3001/user/${userId}/activity
+
 function graphActivity() {
     return axios.get(AdressLink + UserIdentification + "/activity")
 }
 
-/**
-* function for call the data on timing session graph
-* return {promise} adress with timming session for every day of the week
-*/
+
+//function for call the data on timing session graph
+//http://localhost:3001/user/${userId}/average-sessions
+
 function graphTimingSession() {
     return axios.get(AdressLink + UserIdentification + "/average-sessions")
 }
 
-/**
-* function for call the data on Radar graph
-* return {promise} adress with type of performance
-*/
+
+//function for call the data on Radar graph
+//http://localhost:3001/user/${userId}/performance
+
 function graphRadar() {
     return axios.get(AdressLink + UserIdentification + "/performance")
 }
 
-/**
-* function for call the data on Score graph
-* return {promise} adress with score value
-*/
+
+//function for call the data on Score graph
+//http://localhost:3001/user/${userId}
 function graphKPI() {
     return axios.get(AdressLink + UserIdentification)
 }

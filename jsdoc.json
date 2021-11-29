@@ -1,21 +1,28 @@
 {
-  "opts": {
-      "destination": "doc/",
-      "recurse": true
-  },
-
+  
   "source": {
-      "include": ["./src/components", "./src/data"],
-      "includePattern": "\\.(jsx|js|ts|tsx)$",
-      "excludePattern": "(node_modules/|doc)"
+      "include": ["src/components"],
+      "includePattern": ".+\\.js(doc|x)?$",
+    "excludePattern": "(^|\\/|\\\\)_"
   },
 
-  "plugins": [
-      "plugins/markdown"
-  ],
-
+  "plugins": ["plugins/markdown", "node_modules/better-docs/component"],
   "templates": {
-      "cleverLinks": true,
-      "monospaceLinks" : true
+    "better-docs": {
+      "logo": "../public/favicon.ico"
     }
+  },
+
+  "opts": {
+    "template": "node_modules/better-docs",
+    "destination": "docs",
+    "recurse": true,
+    "readme": "README.md"
+  },
+
+  "tags": {
+    "allowUnknownTags": ["component"],
+    "dictionaries": ["jsdoc", "closure"]
+  }
+
 }
