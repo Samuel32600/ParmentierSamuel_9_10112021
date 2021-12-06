@@ -3,6 +3,12 @@ import PropTypes from 'prop-types'
 
 import '../styles/tag.css'
 
+/**
+ * component for showing the users's value on tag
+ * @component
+ * 
+ * @return {component}
+ */
 class Tag extends React.Component {
     render() {
         return (
@@ -26,9 +32,21 @@ export default Tag
 
 
 Tag.propTypes={
+    /**
+     * define type of value on tag
+     */
     valueOfTag: PropTypes.number,
+    /**
+     * define unit for tag
+     */
     unitOfTag: PropTypes.string,
+    /**
+     * define format text for tag
+     */
     textOfTag: PropTypes.string,
+    /**
+     * define format icon for tag
+     */
     iconTag: PropTypes.string
 }
 

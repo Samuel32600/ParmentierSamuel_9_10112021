@@ -28,5 +28,8 @@ reactComponents['Activity'] = Component0;
 import Component1 from '../src/components/Radar-RadarChart.js';
 reactComponents['RadarPerformance'] = Component1;
 
-import Component2 from '../src/components/TimingSession-LineChart.js';
-reactComponents['TimingSession'] = Component2;
+import Component2 from '../src/components/Tag.js';
+reactComponents['Tag'] = Component2;
+
+import Component3 from '../src/components/TimingSession-LineChart.js';
+reactComponents['TimingSession'] = Component3;

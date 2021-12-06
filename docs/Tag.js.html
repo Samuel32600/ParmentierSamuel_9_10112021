@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Home</title>
+  <title> Tag.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -77,82 +79,70 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p></p>
-                    <h1>Home</h1>
+                    <p>Source</p>
+                    <h1>Tag.js</h1>
                 </header>
                 
 
 
 
     
-
-
-    <h3> </h3>
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
     <section>
-        <article><h1>Getting Started with Create React App</h1>
-<p>This project was bootstrapped with <a href="https://github.com/facebook/create-react-app">Create React App</a>.</p>
-<ol>
-<li>Project
-In the project directory, you can run:</li>
-</ol>
-<p>npm install
-npm start</p>
-<p>for information the command 'nmp start' will open an internet window ont he following port: http://localhost:3000</p>
-<ol start="2">
-<li>Backend project
-Backend repository: sportsee/API</li>
-</ol>
-<p>This repo contains all the source code to run the micro API for the sports analytics dashboard.</p>
-<p>2.1 Prerequisites
-Yarn
-to install yarn : enter command in the terminal &quot;yarn&quot;
-to launch API: enter command in the terminal &quot;yarn dev&quot;
-warning, actually API is config on port 3001</p>
-<p>axios
-to install axios : enter command in the terminal &quot;npm install axios&quot;
-add axios with react : enter command in the terminal &quot;yarn add axios&quot;</p>
-<p>2.2. Endpoints
-2.2.1 Possible endpoints
-This project includes four endpoints that you will be able to use:</p>
-<p>http://localhost:3001/user/${userId} - retrieves information from a user. This first endpoint includes the user id, user information (first name, last name and age), the current day's score (todayScore) and key data (calorie, macronutrient, etc.).
-http://localhost:3001/user/${userId}/activity - retrieves a user's activity day by day with kilograms and calories.
-http://localhost:3001/user/${userId}/average-sessions - retrieves the average sessions of a user per day. The week starts on Monday.
-http://localhost:3001/user/${userId}/performance - retrieves a user's performance (energy, endurance, etc.).
-Warning, currently only two users have been mocked. They have userId 12 and 18 respectively.</p>
-<p>2.2.2 Examples of queries
-http://localhost:3001/user/12/performance - Retrieves the performance of the user with id 12
-http://localhost:3001/user/18 - Retrieves user 18's main information.</p>
-<ol start="3">
-<li>
-<p>Update documentation
-Use Jsdoc to comment the code to keep the documentation up to date.
-to uddate JsDOC, enter command in the terminal &quot;yarn docs&quot;</p>
-</li>
-<li>
-<p>Libreries
-Axios - Free API resquest library.
-Recharts - Library for manipulating documents based on data.
-React-router-dom - Collection of navigational components that compose declaratively with your application.</p>
-</li>
-</ol></article>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import PropTypes from 'prop-types'
+
+import '../styles/tag.css'
+/**
+ * component for showing the users's value on tag
+ * @component
+ * 
+ * @return {component}
+ */
+class Tag extends React.Component {
+    render() {
+        return (
+            &lt;div className="container-tag" >
+                &lt;img src={this.props.iconTag} className='icon-tag' alt='icone du tag' />
+                &lt;div className='container-result-Tag'>
+                    &lt;p className='value-tag'>
+                        {this.props.valueOfTag}{this.props.unitOfTag}
+                    &lt;/p>
+                    &lt;span className='text-tag'>
+                        {this.props.textOfTag}
+                    &lt;/span>
+                &lt;/div>
+
+            &lt;/div>
+        )
+    }
+}
+
+export default Tag
+
+
+Tag.propTypes={
+    /**
+     * define type of value on tag
+     */
+    valueOfTag: PropTypes.number,
+    /**
+     * define unit for tag
+     */
+    unitOfTag: PropTypes.string,
+    /**
+     * define format text for tag
+     */
+    textOfTag: PropTypes.string,
+    /**
+     * define format icon for tag
+     */
+    iconTag: PropTypes.string
+}
+
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
